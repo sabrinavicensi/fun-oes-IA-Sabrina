@@ -1,72 +1,102 @@
 const caixaPrincipal = document.querySelector(".caixa-principal");
-const caixaPrincipal = document.querySelector(".caixa-perguntas");
-const caixaPrincipal = document.querySelector(".caixa-alternativas");
-const caixaPrincipal = document.querySelector(".caixa-resultado");
-const textoResultado = document.querySelector(".caixa-resultado");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultados = document.querySelector(".caixa-resultado");
+
+const perguntas = [
 
     {
-        enunciado: "Pergunta?",
+        enunciado: "quantas cores a biotecnologia tem?",
         alternativas: [
             {
-                texto: " Texto/resposta",
-                afirmacao: " Afirmação ",
+                texto: "10 cores",
+                afirmacao: "parabens!voce acertou",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: "9 cores",
+                afirmacao: "que pena!voce errou",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: "qual é a cor da biotecnologia responsavel pela fabricação de alimentos,cosmeticos e biocombustiveis?",
         alternativas: [
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: "cor preta",
+                afirmacao: "errado!essa é responsavel por microorganismos que podem ataca a saúde humana",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: "cor branca",
+                afirmacao: "certa resposta!é isso aí",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: "a biotecnologia laranja e dourada são responsavel por?",
         alternativas: [
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: "divulgações de informações e melhor qualidade de alimento e laticinios.",
+                afirmacao: "quase!esta é a cor laranja e amarela.",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: "divulgações de informações e bioinformatica/nanotecnologia",
+                afirmacao: "é isso aí correto!",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: "a biotecnologia cinza e marrom são responsavel por?",
         alternativas: [
-            {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
-            },
-            {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
-            }
-        ]
-    },
-    {
-        enunciado: " Pergunta?",
-        alternativas: [
-            {
-                texto: " Texto/resposta ",
-                afirmacao: "Afirmação",
-            },
-            {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
-            }
-        ]
-    },
-];
+                {
+                    texto: "a cor vermelha",
+                    afirmacao: "parabens! certinho",
+                },
+                {
+                    texto: "a cor azul",
+                    afirmacao: "errado! essa é responsavel pelos biomas marinhos e exploração do oceano",
+                }
+            ]
+        },
+]
+
+
+
+
+
+
+    let atual = 0;
+    let perguntasAtual;
+    let historiafinal = ""
+
+    function mostrarpergunta (){
+        perguntasAtual = perguntas [atual];
+        caixaPerguntas;textcontent = perguntaAtual.emumciado;
+        mostrarAlternativas();
+    }
+
+    function mostrarAlternativas(){
+        for (const alternativas of perguntaAtual.alternativas){
+            const botaoAlternativas = document.createElement ("button")
+            botaoAlternativas.textContent= alternativa.texto;
+            botaoAltermativas.addEventListener("click"),() => respostaSelecionada(alternativas)
+            caixaAlternativas.appendChild(botaoAlternativas);
+
+        }
+
+    }
+
+    function resṕstaSelecionada(opcoeSelecionada){
+        const afirmacoes = opcoeSelecionada.afirmacao;
+        historiaFinal = afirmacoes += " " 
+        atual++;
+        mostrarpergunta();
+    }
+
+    function mostraResultado (){
+        caixaPerguntas.textContent = "Em 2049...";
+        textoResultados.textContent = historiaFinal;
+        caixaAlternativas.textContent = " ";
+    }
+
+mostraPergunta();
